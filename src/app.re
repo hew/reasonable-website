@@ -1,28 +1,32 @@
 type action =
-  | Tick;
+  | PressureLoaded(string);
 
 type state = {
-  count: int,
+  data: string
 };
 
-let component = ReasonReact.reducerComponent("App");
+let component = ReasonReact.reducerComponent("Counter");
 
 let make = _children => {
   ...component,
-  initialState: () => {count: 0},
+  initialState: () => {data: "hello" },
+  didMount: (self) => {
+    let handleReposLoaded = self.reduce(repoData => PressureLoaded(repoData));
+
+    Js.Promise.(
+      Fetch.fetch("https://hewtools.herokuapp.com")
+      |> then_(Fetch.Response.text)
+      |> then_(text => handleReposLoaded(text) |> resolve)
+    );
+
+    ReasonReact.NoUpdate;
+  },
   reducer: (action, state) =>
     switch (action) {
-    | Tick => ReasonReact.Update({count: state.count + 1})
+    | PressureLoaded(text) => ReasonReact.Update({...state, data: text })
     },
-  subscriptions: self => [
-    Sub(
-      () => Js.Global.setInterval(() => self.send(Tick), 1000),
-      Js.Global.clearInterval
-    )
-  ],
-  render: ({state}) =>
-    <div>
-    {ReasonReact.stringToElement(string_of_int(state.count))}
-    </div>
+  render: ({state, send}) =>
+   <div>
+    <div>{ReasonReact.stringToElement(state.data)}</div>
+   </div>
 };
-
