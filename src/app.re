@@ -8,7 +8,6 @@ type repo = {
 type action =
   | Loaded(array(repo));
 
-/* type state = {data: array(repoData)}; */
 type state = {data: array(repo)};
 
 module Decode = {
@@ -17,11 +16,9 @@ module Decode = {
       name: json |> field("name", string),
       url: json |> field("url", string),
       stars: json |> field("stars", int),
-      forks: json |> field("forks", int),
+      forks: json |> field("forks", int)
     };
-
-  let repos = (json) : array(repo) =>
-    Json.Decode.(json |> array(repo));
+  let repos = (json) : array(repo) => Json.Decode.(json |> array(repo));
 };
 
 let component = ReasonReact.reducerComponent("Counter");
@@ -34,13 +31,17 @@ let make = (_children) => {
     Js.Promise.(
       Fetch.fetch("https://hewtools.herokuapp.com")
       |> then_(Fetch.Response.json)
-      |> then_(json =>
-        json  |> Decode.repos
-              |> stories => {
-                   handleReposLoaded(stories);
-                   resolve(());
-                 }
-       )
+      |> then_(
+           (json) =>
+             json
+             |> Decode.repos
+             |> (
+               (stories) => {
+                 handleReposLoaded(stories);
+                 resolve()
+               }
+             )
+         )
       |> ignore
     );
     ReasonReact.NoUpdate
@@ -50,10 +51,8 @@ let make = (_children) => {
     | Loaded(text) => ReasonReact.Update({...state, data: text})
     },
   render: ({state}) => {
-    let repoList = Array.map((repo) => <p>(ReasonReact.stringToElement(repo.name))</p>, state.data);
-    <div>
-      <div>(ReasonReact.arrayToElement(repoList))</div>
-    </div>
+    let repoList =
+      Array.map((repo) => <p> (ReasonReact.stringToElement(repo.name)) </p>, state.data);
+    <div> <div> (ReasonReact.arrayToElement(repoList)) </div> </div>
   }
 };
-
