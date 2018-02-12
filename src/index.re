@@ -2,6 +2,6 @@
 
 [@bs.module "./registerServiceWorker"] external register_service_worker : unit => unit = "default";
 
-ReactDOMRe.renderToElementWithId(<App />, "root");
+ReactDOMRe.renderToElementWithId(<Router />, "root");
 
 register_service_worker();
