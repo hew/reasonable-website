@@ -1,4 +1,4 @@
-let str = (text) => ReasonReact.stringToElement(text);
+open Utilz;
 
 type repo = {
   name: string,
@@ -38,8 +38,8 @@ let make = (_children) => {
              json
              |> Decode.repos
              |> (
-               (stories) => {
-                 handleReposLoaded(stories);
+               (repos) => {
+                 handleReposLoaded(repos);
                  resolve()
                }
              )
@@ -54,6 +54,9 @@ let make = (_children) => {
     },
   render: ({state}) => {
     let repoList = Array.map((repo) => <p> (str(repo.name)) </p>, state.data);
-    <div> <div> (ReasonReact.arrayToElement(repoList)) </div> </div>
+    <div className="repos"> 
+      <h1>("Hew's Github Repos" |> str)</h1>
+      <h3>("These were fetched using bs-fetch, and decoded using bs-json." |> str)</h3>
+      <div> (ReasonReact.arrayToElement(repoList)) </div> </div>
   }
 };
