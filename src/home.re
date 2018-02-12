@@ -19,7 +19,6 @@ let make = (_children) => {
         <li> ("Fetching" |> str) <span> (" (bs-fetch)" |> str) </span> </li>
         <li> ("Decoding" |> str) <span> (" (bs-json)" |> str) </span> </li>
         <li> ("Routing " |> str) <span> (" (reason-react)" |> str) </span> </li>
-        <li> ("Map an array" |> str) <span> (" (reason-react)" |> str) </span> </li>
       </ul>
       <p>
         (str("To see everything in action, "))

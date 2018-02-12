@@ -7,10 +7,17 @@ Reasonable Website (RW) is a pure Reasonml website boilerplate. (Built off [crea
 ```bash
 git clone git@github.com:hew/reasonable-website.git
 ```
+[View Demo](https://tender-bhaskara-a84104.netlify.com) 
 
 ## Why
 
 I started RW mostly to learn Reasonml: new patterns, etc, as it pertains to web UI development.
+
+## Features
+
+* Routing (reason-react)
+* Fetch (bs-fetch)
+* Decoding (bs-json)
 
 ## Project Goals
 
