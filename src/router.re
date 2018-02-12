@@ -1,11 +1,8 @@
-[%bs.raw {|require('./router.css')|}];
-
-let str = ReasonReact.stringToElement;
-let sty = ReactDOMRe.Style.make;
+open Utilz;
 
 type route =
   | Home
-  | About;
+  | Repos;
 
 type state = {route};
 
@@ -20,7 +17,7 @@ let reducer = (action, _state) =>
 let mapUrlToRoute = (url: ReasonReact.Router.url) =>
   switch url.path {
   | [] => Home
-  | ["about"] => About
+  | ["repos"] => Repos
   | _ => Home
   };
 
@@ -40,13 +37,13 @@ let make = (_children) => {
     <div>
       <ul className="nav">
         <li> <Link href="home"> (str("Home")) </Link> </li>
-        <li> <Link href="about"> (str("About")) </Link> </li>
+        <li> <Link href="repos"> (str("Repos")) </Link> </li>
       </ul>
-      <div>
+      <div className="main">
         (
           switch self.state.route {
           | Home => <Home />
-          | About => <App />
+          | Repos => <Repos />
           }
         )
       </div>

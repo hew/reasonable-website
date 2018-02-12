@@ -1,4 +1,4 @@
-let textEl = (text) => ReasonReact.stringToElement(text);
+let str = (text) => ReasonReact.stringToElement(text);
 
 type repo = {
   name: string,
@@ -53,11 +53,7 @@ let make = (_children) => {
     | Loaded(text) => ReasonReact.Update({...state, data: text})
     },
   render: ({state}) => {
-    let repoList =
-      Array.map((repo) => <p> (ReasonReact.stringToElement(repo.name)) </p>, state.data);
-    <div>
-      <div> (ReasonReact.arrayToElement(repoList)) </div>
-      <button onClick=((_evt) => ReasonReact.Router.push("home"))> (textEl("Press Me")) </button>
-    </div>
+    let repoList = Array.map((repo) => <p> (str(repo.name)) </p>, state.data);
+    <div> <div> (ReasonReact.arrayToElement(repoList)) </div> </div>
   }
 };
