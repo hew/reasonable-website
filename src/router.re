@@ -45,8 +45,8 @@ let make = (_children) => {
       <div>
         (
           switch self.state.route {
-          | Home => <App />
-          | About => <img src="https://media.giphy.com/media/vKmHoLAQSKKhW/giphy.gif" alt="picture 2" />
+          | Home => <Home />
+          | About => <App />
           }
         )
       </div>

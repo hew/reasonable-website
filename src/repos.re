@@ -1,3 +1,5 @@
+let textEl = (text) => ReasonReact.stringToElement(text);
+
 type repo = {
   name: string,
   url: string,
@@ -21,7 +23,7 @@ module Decode = {
   let repos = (json) : array(repo) => Json.Decode.(json |> array(repo));
 };
 
-let component = ReasonReact.reducerComponent("Repos");
+let component = ReasonReact.reducerComponent("Counter");
 
 let make = (_children) => {
   ...component,
@@ -53,6 +55,9 @@ let make = (_children) => {
   render: ({state}) => {
     let repoList =
       Array.map((repo) => <p> (ReasonReact.stringToElement(repo.name)) </p>, state.data);
-    <div> <div> (ReasonReact.arrayToElement(repoList)) </div> </div>
+    <div>
+      <div> (ReasonReact.arrayToElement(repoList)) </div>
+      <button onClick=((_evt) => ReasonReact.Router.push("home"))> (textEl("Press Me")) </button>
+    </div>
   }
 };
