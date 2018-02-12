@@ -55,9 +55,9 @@ let make = (_children) => {
   render: ({state}) => {
     let repoList =
       Array.map((repo) => <p> (ReasonReact.stringToElement(repo.name)) </p>, state.data);
-    <div> 
-      <div> (ReasonReact.arrayToElement(repoList)) </div> 
-      <button onClick={_evt => ReasonReact.Router.push("home")}>{textEl("Press Me")}</button>
-      </div>
+    <div>
+      <div> (ReasonReact.arrayToElement(repoList)) </div>
+      <button onClick=((_evt) => ReasonReact.Router.push("home"))> (textEl("Press Me")) </button>
+    </div>
   }
 };

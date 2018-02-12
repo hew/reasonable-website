@@ -1,10 +1,11 @@
+[%bs.raw {|require('./router.css')|}];
+
 let str = ReasonReact.stringToElement;
+let sty = ReactDOMRe.Style.make;
 
 type route =
-  | Picture1
-  | Picture2
-  | Picture3
-  | Picture4;
+  | Home
+  | About;
 
 type state = {route};
 
@@ -18,11 +19,9 @@ let reducer = (action, _state) =>
 
 let mapUrlToRoute = (url: ReasonReact.Router.url) =>
   switch url.path {
-  | [] => Picture1
-  | ["picture_2"] => Picture2
-  | ["picture_3"] => Picture3
-  | ["picture_4"] => Picture4
-  | _ => Picture1
+  | [] => Home
+  | ["about"] => About
+  | _ => Home
   };
 
 let component = ReasonReact.reducerComponent("Router");
@@ -30,7 +29,7 @@ let component = ReasonReact.reducerComponent("Router");
 let make = (_children) => {
   ...component,
   reducer,
-  initialState: () => {route: Picture1},
+  initialState: () => {route: Home},
   subscriptions: (self) => [
     Sub(
       () => ReasonReact.Router.watchUrl((url) => self.send(ChangeRoute(url |> mapUrlToRoute))),
@@ -39,22 +38,17 @@ let make = (_children) => {
   ],
   render: (self) =>
     <div>
-      <ul>
-        <li> <Link href="picture_1"> (str("picture 1")) </Link> </li>
-        <li> <Link href="picture_2"> (str("picture 2")) </Link> </li>
-        <li> <Link href="picture_3"> (str("picture 3")) </Link> </li>
-        <li> <Link href="picture_4"> (str("picture 4")) </Link> </li>
+      <ul className="nav">
+        <li> <Link href="home"> (str("Home")) </Link> </li>
+        <li> <Link href="about"> (str("About")) </Link> </li>
       </ul>
       <div>
         (
           switch self.state.route {
-          | Picture1 => <App />
-          | Picture2 => <img src="https://media.giphy.com/media/vKmHoLAQSKKhW/giphy.gif" alt="picture 2" />
-          | Picture3 => <img src="https://media.giphy.com/media/WyeodYfrqvHCo/giphy.gif" alt="picture 3" />
-          | Picture4 => <img src="https://media.giphy.com/media/nrXif9YExO9EI/giphy.gif" alt="picture 4" />
+          | Home => <App />
+          | About => <img src="https://media.giphy.com/media/vKmHoLAQSKKhW/giphy.gif" alt="picture 2" />
           }
         )
       </div>
     </div>
 };
-
