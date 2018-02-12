@@ -2,7 +2,8 @@ open Utilz;
 
 type route =
   | Home
-  | Repos;
+  | Repos
+  | Future;
 
 type state = {route};
 
@@ -18,6 +19,7 @@ let mapUrlToRoute = (url: ReasonReact.Router.url) =>
   switch url.path {
   | [] => Home
   | ["repos"] => Repos
+  | ["future"] => Future
   | _ => Home
   };
 
@@ -38,12 +40,14 @@ let make = (_children) => {
       <ul className="nav">
         <li> <Link href="home"> (str("Home")) </Link> </li>
         <li> <Link href="repos"> (str("Repos")) </Link> </li>
+        <li> <Link href="future"> (str("Future")) </Link> </li>
       </ul>
       <div className="main">
         (
           switch self.state.route {
           | Home => <Home />
           | Repos => <Repos />
+          | Future => <Future />
           }
         )
       </div>

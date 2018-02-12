@@ -24,3 +24,8 @@ body {
 .main {
   padding: 2em 1.5em;
 }
+
+.home span {
+  color: gray;
+  font-style: italic;
+}
