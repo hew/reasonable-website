@@ -7,12 +7,7 @@ let make = (_children) => {
   render: (_self) =>
     <div className="future">
       <h1> ("Future Goals" |> str) </h1>
-      <p> ("Future goals for reasonable website include but are not limited to:" |> str) </p>
-      <ul>
-        <li>
-          <strong> ("Proper Routing" |> str) </strong>
-          <p> ("A longer sentence than the above." |> str) </p>
-        </li>
-      </ul>
+      <p> ("Future goals and bugs will be tracked on Github:" |> str) </p>
+      <p> <Link href="https://github.com/hew/reasonable-website/issues/">("Check them out" |> str)</Link> </p>
     </div>
 };

@@ -25,9 +25,5 @@ let make = (_children) => {
         (str("To see everything in action, "))
         <Link href="/repos"> (str("check out my repos.")) </Link>
       </p>
-      <p>
-        (str("To see future goals, check out "))
-        <Link href="/future"> (str("the future.")) </Link>
-      </p>
     </div>
 };
