@@ -1,4 +1,4 @@
-open Utilz;
+open Utils;
 
 type route =
   | Home

@@ -1,5 +1,5 @@
 {
-  "name": "reason-scripts",
+  "name": "reasonable-website",
   "sources": [
     "src"
   ],
@@ -8,7 +8,8 @@
     "bs-jest",
     "bs-fetch",
     "bs-json"
-  ],
+ ],
+  "suffix": ".bs.js",
   "reason": {
     "react-jsx": 2
   },

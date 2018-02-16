@@ -1,7 +1,7 @@
 [%bs.raw {|require('./index.css')|}];
 
-[@bs.module "./registerServiceWorker"] external register_service_worker : unit => unit = "default";
+/* [@bs.module "./registerServiceWorker"] external register_service_worker : unit => unit = "default"; */
 
 ReactDOMRe.renderToElementWithId(<Router />, "root");
 
-register_service_worker();
+/* register_service_worker(); */

@@ -1,11 +1,13 @@
 # Reasonable Website
 
-Reasonable Website (RW) is a pure Reasonml website boilerplate. (Built off [create-react-app](https://github.com/facebook/create-react-app))
+Reasonable Website (RW) is a pure Reasonml website boilerplate. 
 
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
 ```bash
 git clone git@github.com:hew/reasonable-website.git
+npm run start
+parcel index.html
 ```
 [View Demo](https://tender-bhaskara-a84104.netlify.com) 
 

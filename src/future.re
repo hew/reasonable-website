@@ -1,4 +1,4 @@
-open Utilz;
+open Utils;
 
 let component = ReasonReact.statelessComponent("Future");
 

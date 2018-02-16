@@ -1,4 +1,4 @@
-open Utilz;
+open Utils;
 
 type repo = {
   name: string,
@@ -56,7 +56,7 @@ let make = (_children) => {
     let repoList = Array.map((repo) => <p> (str(repo.name)) </p>, state.data);
     <div className="repos"> 
       <h1>("Hew's Github Repos" |> str)</h1>
-      <p>("The ol', data fetch, map a list. Are these linked or anything? Uh, no." |> str)</p>
+      <p>("The ol', data fetch, map a list. Are these linked or anything? Uh.." |> str)</p>
       <hr />
       <div> (ReasonReact.arrayToElement(repoList)) </div> </div>
   }
