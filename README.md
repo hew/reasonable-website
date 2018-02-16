@@ -1,6 +1,6 @@
 # Reasonable Website
 
-Reasonable Website (RW) is a pure Reasonml website boilerplate. 
+Reasonable Website (RW) is a lightweight, pure Reasonml website boilerplate. It's built with [parcel.js](https://parceljs.org/).
 
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
@@ -26,6 +26,7 @@ I started RW mostly to learn Reasonml: new patterns, etc, as it pertains to web 
 Eventually, I'd like for this to be a production-ready website boilerplate. The main stuff I want to tackle:
 
 * Tests
+* Improve build: replace the `cp *.css` with something more elegant.
 * (More to come...)
 
 Contributions are welcome.
