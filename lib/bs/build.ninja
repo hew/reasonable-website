@@ -1,7 +1,7 @@
 bs_package_flags = -bs-package-name reasonable-website
 src_root_dir = /Users/hew/Sites/reasonable-website
-bsc = /Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/bsc.exe
-bsdep = /Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/bsb_helper.exe
+bsc = /usr/local/lib/node_modules/bs-platform/lib/bsc.exe
+bsdep = /usr/local/lib/node_modules/bs-platform/lib/bsb_helper.exe
 warnings = -w -30-40+6+7+27+32..39+44+45+101
 bsc_flags = -bs-suffix -nostdlib -I '/Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/ocaml' -bs-super-errors -no-alias-deps -color always
 ppx_flags = 
@@ -9,8 +9,8 @@ bs_package_includes = -I /Users/hew/Sites/reasonable-website/node_modules/reason
 bs_package_dev_includes = 
 namespace = 
 bsb_dir_group = 0
-refmt = /Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/refmt3.exe
-reason_react_jsx = -ppx '/Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
+refmt = /usr/local/lib/node_modules/bs-platform/lib/refmt3.exe
+reason_react_jsx = -ppx '/usr/local/lib/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
 refmt_flags = --print binary
 bsc_lib_includes = -I src
 rule build_ast_and_module_sets_from_re

@@ -8,7 +8,8 @@
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
     "start": "npm run copy-css && npm run watch",
-    "copy-css": "cp src/*.css lib/js/src/"
+    "copy-css": "cp src/*.css lib/js/src/",
+    "prod": "npm run copy-css && npm run build && npx parcel build index.html"
   },
   "dependencies": {
     "bs-fetch": "^0.2.1",
@@ -16,5 +17,8 @@
     "bs-json": "^1.0.1",
     "bs-platform": "^2.2.1",
     "reason-react": "^0.3.2"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.6.1"
   }
 }
