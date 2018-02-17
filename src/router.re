@@ -28,7 +28,7 @@ let component = ReasonReact.reducerComponent("Router");
 let make = (_children) => {
   ...component,
   reducer,
-  initialState: () => {route: Home},
+  initialState: () => { route: ReasonReact.Router.dangerouslyGetInitialUrl() |> mapUrlToRoute },
   subscriptions: (self) => [
     Sub(
       () => ReasonReact.Router.watchUrl((url) => self.send(ChangeRoute(url |> mapUrlToRoute))),
