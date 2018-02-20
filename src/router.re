@@ -3,6 +3,7 @@ open Utils;
 type route =
   | Home
   | Repos
+  | Restyled
   | Future;
 
 type state = {route};
@@ -20,6 +21,7 @@ let mapUrlToRoute = (url: ReasonReact.Router.url) =>
   | [] => Home
   | ["repos"] => Repos
   | ["future"] => Future
+  | ["restyled"] => Restyled
   | _ => Home
   };
 
@@ -28,7 +30,7 @@ let component = ReasonReact.reducerComponent("Router");
 let make = (_children) => {
   ...component,
   reducer,
-  initialState: () => { route: ReasonReact.Router.dangerouslyGetInitialUrl() |> mapUrlToRoute },
+  initialState: () => {route: ReasonReact.Router.dangerouslyGetInitialUrl() |> mapUrlToRoute},
   subscriptions: (self) => [
     Sub(
       () => ReasonReact.Router.watchUrl((url) => self.send(ChangeRoute(url |> mapUrlToRoute))),
@@ -36,20 +38,24 @@ let make = (_children) => {
     )
   ],
   render: (self) =>
-    <div>
-      <ul className="nav">
-        <li> <Link href="home"> (str("Home")) </Link> </li>
-        <li> <Link href="repos"> (str("Repos")) </Link> </li>
-        <li> <Link href="future"> (str("Future")) </Link> </li>
-      </ul>
-      <div className="main">
-        (
-          switch self.state.route {
-          | Home => <Home />
-          | Repos => <Repos />
-          | Future => <Future />
-          }
-        )
+    <Styletron.React.Provider>
+      <div>
+        <ul className="nav">
+          <li> <Link beep=BsCssCore.Css.beige href="home"> (str("Home")) </Link> </li>
+          <li> <Link beep=BsCssCore.Css.beige href="repos"> (str("Repos")) </Link> </li>
+          <li> <Link beep=BsCssCore.Css.beige href="future"> (str("Future")) </Link> </li>
+          <li> <Link beep=BsCssCore.Css.beige href="restyled"> (str("Restyled")) </Link> </li>
+        </ul>
+        <div className="main">
+          (
+            switch self.state.route {
+            | Home => <Home />
+            | Repos => <Repos />
+            | Future => <Future />
+            | Restyled => <Restyled />
+            }
+          )
+        </div>
       </div>
-    </div>
+    </Styletron.React.Provider>
 };

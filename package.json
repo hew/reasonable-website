@@ -12,6 +12,8 @@
     "prod": "npm run copy-css && npm run build && npx parcel build index.html"
   },
   "dependencies": {
+    "@astrada/bs-styletron-react": "^0.1.3",
+    "bs-css-core": "^0.2.2",
     "bs-fetch": "^0.2.1",
     "bs-jest": "^0.3.2",
     "bs-json": "^1.0.1",

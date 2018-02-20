@@ -1,1 +1,0 @@
-let str = ReasonReact.stringToElement;

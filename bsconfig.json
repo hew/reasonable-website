@@ -1,13 +1,16 @@
 {
   "name": "reasonable-website",
-  "sources": [
-    "src"
-  ],
+  "sources": {
+    "dir": "src",
+    "subdirs": true
+  },
   "bs-dependencies": [
     "reason-react",
     "bs-jest",
     "bs-fetch",
-    "bs-json"
+    "bs-json",
+    "@astrada/bs-styletron-react",
+    "bs-css-core"
  ],
   "suffix": ".bs.js",
   "reason": {
