@@ -11,5 +11,6 @@ let make = (_children) => {
       <Heading> "My name is Matthew Jones" </Heading>
       <Space s=[p(2)]>(str("Hello"))</Space>
       <Highlight>"Hello"</Highlight>
+      <Underline>"Hello"</Underline>
     </Wrapper>
 };

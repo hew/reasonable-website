@@ -20,9 +20,9 @@ let makeStyledComponent = (s, children) =>
     children
   );
 
-let makeStyled = (styl, children) =>
+let makeStyled = (styl, ~el="div", children) =>
   Styletron.React.makeStyled(
-    ~base=`String("div"),
+    ~base=`String(el),
     ~rule=(_props) => style(styl),
     ~props=Js.Obj.empty(),
     children
@@ -37,7 +37,7 @@ module Wrapper = {
 };
 
 module Heading = {
-  let make = (children) => makeStyled([fontSize(em(2.))], children);
+  let make = (children) => makeStyled([fontSize(em(2.))], ~el="h1", children);
 };
 
 module Highlight = {
@@ -49,6 +49,19 @@ module Highlight = {
         color(color_),
         backgroundColor(bg),
         p(1)
+      ],
+      children
+    );
+};
+
+module Underline = {
+  let make = (~color_ = Color.primary, children) =>
+    makeStyled(
+      [
+        display(InlineBlock),
+        borderBottomWidth(space(1)),
+        borderBottomColor(color_),
+        borderBottomStyle(Solid),
       ],
       children
     );

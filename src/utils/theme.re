@@ -1,6 +1,4 @@
-open BsCssCore;
-
-open Css;
+open BsCssCore.Css;
 
 let pageWidth = maxWidth(em(72.));
 let scale = [| 0., 0.5, 1., 2., 4. |];
