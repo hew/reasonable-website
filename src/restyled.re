@@ -1,6 +1,9 @@
 open Primatives;
+open Theme;
 
 let component = ReasonReact.statelessComponent("Beep");
+
+/* Js.log(p(2)); */
 
 let make = (_children) => {
   ...component,
@@ -9,9 +12,6 @@ let make = (_children) => {
       <Heading> "My name is Matthew Jones" </Heading>
       <InlineColor> "yo" </InlineColor>
       <Nav> "beep" </Nav>
-
-      <Link beep=BsCssCore.Css.bisque href="https://github.com/rtsao/styletron">
-      (ReasonReact.stringToElement("Link example"))
-      </Link>
+      <Flex s_=[p(2)] />
     </Wrapper>
 };

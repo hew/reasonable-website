@@ -43,6 +43,11 @@ build src/utils/link.mlast.d : build_deps src/utils/link.mlast
 build src/utils/link.cmj |  $src_root_dir/lib/js/src/utils/link.bs.js src/utils/link.cmi : build_cmj_cmi src/utils/link.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/utils
+build src/utils/theme.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/utils/theme.re
+build src/utils/theme.mlast.d : build_deps src/utils/theme.mlast
+build src/utils/theme.cmj |  $src_root_dir/lib/js/src/utils/theme.bs.js src/utils/theme.cmi : build_cmj_cmi src/utils/theme.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/utils
 build src/utils/utils.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/utils/utils.re
 build src/utils/utils.mlast.d : build_deps src/utils/utils.mlast
 build src/utils/utils.cmj |  $src_root_dir/lib/js/src/utils/utils.bs.js src/utils/utils.cmi : build_cmj_cmi src/utils/utils.mlast
@@ -73,4 +78,4 @@ build src/pages/future.mlast.d : build_deps src/pages/future.mlast
 build src/pages/future.cmj |  $src_root_dir/lib/js/src/pages/future.bs.js src/pages/future.cmi : build_cmj_cmi src/pages/future.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/pages
-build build.ninja : phony  ||  src/pages/future.mlast.d src/pages/repos.mlast.d src/pages/about.mlast.d src/pages/home.mlast.d src/utils/primatives.mlast.d src/utils/utils.mlast.d src/utils/link.mlast.d src/restyled.mlast.d src/router.mlast.d src/index.mlast.d
+build build.ninja : phony  ||  src/pages/future.mlast.d src/pages/repos.mlast.d src/pages/about.mlast.d src/pages/home.mlast.d src/utils/primatives.mlast.d src/utils/utils.mlast.d src/utils/theme.mlast.d src/utils/link.mlast.d src/restyled.mlast.d src/router.mlast.d src/index.mlast.d

@@ -3,13 +3,9 @@ open Css;
 
 type beep = int;
 
-type theme = {
-  textColor: color,
-};
+type theme = {textColor: color};
 
-let theme = {
-  textColor: purple
-};
+let theme = {textColor: purple};
 
 module Nav = {
   let make = (children) =>
@@ -45,8 +41,39 @@ module InlineColor = {
   let make = (children) =>
     Styletron.React.makeStyled(
       ~base=`String("h1"),
-      ~rule= (props) => BsCssCore.Css.(style([display(InlineBlock), backgroundColor(props##name), color(props##white)])),
+      ~rule=
+        (props) =>
+          BsCssCore.Css.(
+            style([display(InlineBlock), backgroundColor(props##name), color(props##white)])
+          ),
       ~props=Js.Obj.empty(),
       children
     );
+};
+
+/* let parser = (arr: array('a)) => { */
+/*  Array.iter((s) => { */
+/*     switch s { */
+/*       | float => Js.log(s) */
+/*     }; */
+
+/*   }, arr); */
+/* }; */
+
+module Flex = {
+  module Component = {
+    let component = ReasonReact.statelessComponent("Component");
+    let make = (~className, ~s_, children) => {
+      ...component,
+      render: (_self) => <div className> (ReasonReact.arrayToElement(children)) </div>
+    };
+  };
+  let make = (~s_, children) => {
+    Styletron.React.makeStyledComponent(
+      ~rule=(_props) => style(s_),
+      ~component=Component.component,
+      ~make=Component.make(~s_),
+      children
+    )
+  };
 };

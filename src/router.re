@@ -41,10 +41,10 @@ let make = (_children) => {
     <Styletron.React.Provider>
       <div>
         <ul className="nav">
-          <li> <Link beep=BsCssCore.Css.beige href="home"> (str("Home")) </Link> </li>
-          <li> <Link beep=BsCssCore.Css.beige href="repos"> (str("Repos")) </Link> </li>
-          <li> <Link beep=BsCssCore.Css.beige href="future"> (str("Future")) </Link> </li>
-          <li> <Link beep=BsCssCore.Css.beige href="restyled"> (str("Restyled")) </Link> </li>
+          <li> <Link href="home"> (str("Home")) </Link> </li>
+          <li> <Link href="repos"> (str("Repos")) </Link> </li>
+          <li> <Link href="future"> (str("Future")) </Link> </li>
+          <li> <Link href="restyled"> (str("Restyled")) </Link> </li>
         </ul>
         <div className="main">
           (

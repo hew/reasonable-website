@@ -1,1 +1,1 @@
-src/restyled.cmj : src/utils/link.cmj src/utils/primatives.cmj
+src/restyled.cmj : src/utils/primatives.cmj src/utils/theme.cmj

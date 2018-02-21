@@ -1,1 +1,1 @@
-src/pages/home.cmj : src/utils/utils.cmj
+src/pages/home.cmj : src/utils/link.cmj src/utils/utils.cmj

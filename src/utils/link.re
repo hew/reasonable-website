@@ -1,17 +1,12 @@
-open BsCssCore.Css;
+let component = ReasonReact.statelessComponent("Link");
 
-module Component = {
-  let component = ReasonReact.statelessComponent("Component");
-  let make = (~href, ~className, children) => {
-    ...component,
-    render: (_self) => <a className href> (ReasonReact.arrayToElement(children)) </a>
+let handleClick = (href, event) =>
+  if (! ReactEventRe.Mouse.defaultPrevented(event)) {
+    ReactEventRe.Mouse.preventDefault(event);
+    ReasonReact.Router.push(href)
   };
-};
 
-let make = (~href, ~beep, children) =>
-  Styletron.React.makeStyledComponent(
-    ~rule=(_props) => style([flexGrow(1), flexBasis(rem(10.)), backgroundColor(beep)]),
-    ~component=Component.component,
-    ~make=Component.make(~href),
-    children
-  );
+let make = (~href, children) => {
+  ...component,
+  render: (_self) => ReasonReact.createDomElement("a", ~props={"href": href, "onClick": handleClick(href)}, children)
+};

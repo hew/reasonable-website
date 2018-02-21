@@ -22,6 +22,7 @@ let make = (_children) => {
       </ul>
       <p>
         (str("To see everything in action, "))
+        <Link href="/repos"> (str("check out my repos.")) </Link>
       </p>
     </div>
 };
