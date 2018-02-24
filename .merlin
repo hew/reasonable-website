@@ -1,6 +1,6 @@
 ####{BSB GENERATED: NO EDIT
-FLG -ppx '/Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
-FLG -ppx /Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/bsppx.exe
+FLG -ppx '/usr/local/lib/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
+FLG -ppx /usr/local/lib/node_modules/bs-platform/lib/bsppx.exe
 S /Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/ocaml
 B /Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/ocaml
 FLG -nostdlib -no-alias-deps -color always
@@ -23,4 +23,6 @@ S src/utils
 B lib/bs/src/utils
 S src/pages
 B lib/bs/src/pages
+S src/components
+B lib/bs/src/components
 ####BSB GENERATED: NO EDIT}

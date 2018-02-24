@@ -9,7 +9,7 @@
     "watch": "bsb -make-world -w",
     "start": "npm run copy-css && npm run watch",
     "copy-css": "cp src/*.css lib/js/src/",
-    "prod": "npm run copy-css && npm run build && npx parcel build index.html"
+    "prod": "npm run copy-css && npm run build && npx parcel build index.html --public-url ./"
   },
   "dependencies": {
     "@astrada/bs-styletron-react": "^0.1.3",
