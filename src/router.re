@@ -1,10 +1,6 @@
-open Utils;
-
 type route =
   | Home
-  | Repos
-  | Restyled
-  | Future;
+  | More;
 
 type state = {route};
 
@@ -19,9 +15,7 @@ let reducer = (action, _state) =>
 let mapUrlToRoute = (url: ReasonReact.Router.url) =>
   switch url.path {
   | [] => Home
-  | ["repos"] => Repos
-  | ["future"] => Future
-  | ["restyled"] => Restyled
+  | ["more"] => More
   | _ => Home
   };
 
@@ -40,22 +34,16 @@ let make = (_children) => {
   render: (self) =>
     <Styletron.React.Provider>
       <div>
-        <ul className="nav">
-          <li> <Link href="home"> (str("Home")) </Link> </li>
-          <li> <Link href="repos"> (str("Repos")) </Link> </li>
-          <li> <Link href="future"> (str("Future")) </Link> </li>
-          <li> <Link href="restyled"> (str("Restyled")) </Link> </li>
-        </ul>
-        <div className="main">
+        <Nav />
+        <main>
           (
             switch self.state.route {
             | Home => <Home />
-            | Repos => <Repos />
-            | Future => <Future />
-            | Restyled => <Restyled />
+            | More => <More />
             }
           )
-        </div>
+        </main>
+        <Footer />
       </div>
     </Styletron.React.Provider>
 };

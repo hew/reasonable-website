@@ -1,0 +1,1 @@
+src/components/footer.cmj : src/utils/primatives.cmj src/utils/utils.cmj

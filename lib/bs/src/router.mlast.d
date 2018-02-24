@@ -1,1 +1,1 @@
-src/router.cmj : src/pages/future.cmj src/pages/home.cmj src/utils/link.cmj src/pages/repos.cmj src/restyled.cmj src/utils/utils.cmj
+src/router.cmj : src/components/footer.cmj src/pages/home.cmj src/pages/more.cmj src/components/nav.cmj

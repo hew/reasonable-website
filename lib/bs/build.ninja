@@ -12,7 +12,7 @@ bsb_dir_group = 0
 refmt = /Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/refmt3.exe
 reason_react_jsx = -ppx '/Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
 refmt_flags = --print binary
-bsc_lib_includes = -I src/pages -I src/utils -I src
+bsc_lib_includes = -I src/components -I src/pages -I src/utils -I src
 rule build_ast_and_module_sets_from_re
   command = ${bsc} -pp "${refmt} ${refmt_flags}" ${reason_react_jsx}  ${ppx_flags} ${warnings} ${bsc_flags} -c -o ${out} -bs-syntax-only -bs-binary-ast -impl ${in}
   description = [34mBuilding[39m [2m${out}[22m
@@ -33,16 +33,6 @@ build src/router.mlast.d : build_deps src/router.mlast
 build src/router.cmj |  $src_root_dir/lib/js/src/router.bs.js src/router.cmi : build_cmj_cmi src/router.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src
-build src/restyled.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/restyled.re
-build src/restyled.mlast.d : build_deps src/restyled.mlast
-build src/restyled.cmj |  $src_root_dir/lib/js/src/restyled.bs.js src/restyled.cmi : build_cmj_cmi src/restyled.mlast
-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
-  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src
-build src/utils/link.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/utils/link.re
-build src/utils/link.mlast.d : build_deps src/utils/link.mlast
-build src/utils/link.cmj |  $src_root_dir/lib/js/src/utils/link.bs.js src/utils/link.cmi : build_cmj_cmi src/utils/link.mlast
-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
-  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/utils
 build src/utils/theme.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/utils/theme.re
 build src/utils/theme.mlast.d : build_deps src/utils/theme.mlast
 build src/utils/theme.cmj |  $src_root_dir/lib/js/src/utils/theme.bs.js src/utils/theme.cmi : build_cmj_cmi src/utils/theme.mlast
@@ -51,6 +41,11 @@ build src/utils/theme.cmj |  $src_root_dir/lib/js/src/utils/theme.bs.js src/util
 build src/utils/utils.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/utils/utils.re
 build src/utils/utils.mlast.d : build_deps src/utils/utils.mlast
 build src/utils/utils.cmj |  $src_root_dir/lib/js/src/utils/utils.bs.js src/utils/utils.cmi : build_cmj_cmi src/utils/utils.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/utils
+build src/utils/config.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/utils/config.re
+build src/utils/config.mlast.d : build_deps src/utils/config.mlast
+build src/utils/config.cmj |  $src_root_dir/lib/js/src/utils/config.bs.js src/utils/config.cmi : build_cmj_cmi src/utils/config.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/utils
 build src/utils/primatives.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/utils/primatives.re
@@ -63,9 +58,9 @@ build src/pages/home.mlast.d : build_deps src/pages/home.mlast
 build src/pages/home.cmj |  $src_root_dir/lib/js/src/pages/home.bs.js src/pages/home.cmi : build_cmj_cmi src/pages/home.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/pages
-build src/pages/about.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/pages/about.re
-build src/pages/about.mlast.d : build_deps src/pages/about.mlast
-build src/pages/about.cmj |  $src_root_dir/lib/js/src/pages/about.bs.js src/pages/about.cmi : build_cmj_cmi src/pages/about.mlast
+build src/pages/more.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/pages/more.re
+build src/pages/more.mlast.d : build_deps src/pages/more.mlast
+build src/pages/more.cmj |  $src_root_dir/lib/js/src/pages/more.bs.js src/pages/more.cmi : build_cmj_cmi src/pages/more.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/pages
 build src/pages/repos.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/pages/repos.re
@@ -73,9 +68,19 @@ build src/pages/repos.mlast.d : build_deps src/pages/repos.mlast
 build src/pages/repos.cmj |  $src_root_dir/lib/js/src/pages/repos.bs.js src/pages/repos.cmi : build_cmj_cmi src/pages/repos.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/pages
-build src/pages/future.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/pages/future.re
-build src/pages/future.mlast.d : build_deps src/pages/future.mlast
-build src/pages/future.cmj |  $src_root_dir/lib/js/src/pages/future.bs.js src/pages/future.cmi : build_cmj_cmi src/pages/future.mlast
+build src/components/nav.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/components/nav.re
+build src/components/nav.mlast.d : build_deps src/components/nav.mlast
+build src/components/nav.cmj |  $src_root_dir/lib/js/src/components/nav.bs.js src/components/nav.cmi : build_cmj_cmi src/components/nav.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
-  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/pages
-build build.ninja : phony  ||  src/pages/future.mlast.d src/pages/repos.mlast.d src/pages/about.mlast.d src/pages/home.mlast.d src/utils/primatives.mlast.d src/utils/utils.mlast.d src/utils/theme.mlast.d src/utils/link.mlast.d src/restyled.mlast.d src/router.mlast.d src/index.mlast.d
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/components
+build src/components/route.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/components/route.re
+build src/components/route.mlast.d : build_deps src/components/route.mlast
+build src/components/route.cmj |  $src_root_dir/lib/js/src/components/route.bs.js src/components/route.cmi : build_cmj_cmi src/components/route.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/components
+build src/components/footer.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/components/footer.re
+build src/components/footer.mlast.d : build_deps src/components/footer.mlast
+build src/components/footer.cmj |  $src_root_dir/lib/js/src/components/footer.bs.js src/components/footer.cmi : build_cmj_cmi src/components/footer.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/components
+build build.ninja : phony  ||  src/components/footer.mlast.d src/components/route.mlast.d src/components/nav.mlast.d src/pages/repos.mlast.d src/pages/more.mlast.d src/pages/home.mlast.d src/utils/primatives.mlast.d src/utils/config.mlast.d src/utils/utils.mlast.d src/utils/theme.mlast.d src/router.mlast.d src/index.mlast.d
