@@ -1,5 +1,5 @@
 open Primatives;
-open Utils;
+open Theme;
 
 open BsCssCore.Css;
 
@@ -9,6 +9,7 @@ let make = (_children) => {
   ...component,
   render: (_self) =>
     <Wrapper>
+      <Space px=2 />
       <H1>(<Wavy> "Reasonable Website" </Wavy>)</H1>
       <H2> <Highlight> "about" </Highlight> </H2>
       <P>

@@ -1,7 +1,7 @@
 bs_package_flags = -bs-package-name reasonable-website
 src_root_dir = /Users/hew/Sites/reasonable-website
-bsc = /usr/local/lib/node_modules/bs-platform/lib/bsc.exe
-bsdep = /usr/local/lib/node_modules/bs-platform/lib/bsb_helper.exe
+bsc = /Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/bsc.exe
+bsdep = /Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/bsb_helper.exe
 warnings = -w -30-40+6+7+27+32..39+44+45+101
 bsc_flags = -bs-suffix -nostdlib -I '/Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/ocaml' -bs-super-errors -no-alias-deps -color always
 ppx_flags = 
@@ -9,8 +9,8 @@ bs_package_includes = -I /Users/hew/Sites/reasonable-website/node_modules/reason
 bs_package_dev_includes = 
 namespace = 
 bsb_dir_group = 0
-refmt = /usr/local/lib/node_modules/bs-platform/lib/refmt3.exe
-reason_react_jsx = -ppx '/usr/local/lib/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
+refmt = /Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/refmt3.exe
+reason_react_jsx = -ppx '/Users/hew/Sites/reasonable-website/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
 refmt_flags = --print binary
 bsc_lib_includes = -I src/components -I src/pages -I src/utils -I src
 rule build_ast_and_module_sets_from_re
@@ -33,6 +33,11 @@ build src/router.mlast.d : build_deps src/router.mlast
 build src/router.cmj |  $src_root_dir/lib/js/src/router.bs.js src/router.cmi : build_cmj_cmi src/router.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src
+build src/utils/space.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/utils/space.re
+build src/utils/space.mlast.d : build_deps src/utils/space.mlast
+build src/utils/space.cmj |  $src_root_dir/lib/js/src/utils/space.bs.js src/utils/space.cmi : build_cmj_cmi src/utils/space.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/utils
 build src/utils/theme.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/utils/theme.re
 build src/utils/theme.mlast.d : build_deps src/utils/theme.mlast
 build src/utils/theme.cmj |  $src_root_dir/lib/js/src/utils/theme.bs.js src/utils/theme.cmi : build_cmj_cmi src/utils/theme.mlast
@@ -83,4 +88,4 @@ build src/components/footer.mlast.d : build_deps src/components/footer.mlast
 build src/components/footer.cmj |  $src_root_dir/lib/js/src/components/footer.bs.js src/components/footer.cmi : build_cmj_cmi src/components/footer.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:lib/js/src/components
-build build.ninja : phony  ||  src/components/footer.mlast.d src/components/route.mlast.d src/components/nav.mlast.d src/pages/repos.mlast.d src/pages/more.mlast.d src/pages/home.mlast.d src/utils/primatives.mlast.d src/utils/config.mlast.d src/utils/utils.mlast.d src/utils/theme.mlast.d src/router.mlast.d src/index.mlast.d
+build build.ninja : phony  ||  src/components/footer.mlast.d src/components/route.mlast.d src/components/nav.mlast.d src/pages/repos.mlast.d src/pages/more.mlast.d src/pages/home.mlast.d src/utils/primatives.mlast.d src/utils/config.mlast.d src/utils/utils.mlast.d src/utils/theme.mlast.d src/utils/space.mlast.d src/router.mlast.d src/index.mlast.d

@@ -15,7 +15,12 @@ module Component = {
 let makeStyled = (styl, ~el="div", children) =>
   Styletron.React.makeStyled(
     ~base=`String(el),
-    ~rule=(_props) => style(styl),
+    ~rule=(_props) => { 
+      Js.log(
+        style([px_(2)])
+      );
+      style(styl);
+    },
     ~props=Js.Obj.empty(),
     children
   );

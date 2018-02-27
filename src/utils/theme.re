@@ -1,4 +1,3 @@
-open BsCssCore;
 open BsCssCore.Css;
 
 let pageWidth = maxWidth(em(52.));
@@ -34,10 +33,10 @@ module Color = {
 };
 
 module Typography = {
-  let one = Css.px(72);
-  let two = Css.px(48);
-  let three = Css.px(36);
-  let four = Css.px(24);
-  let five = Css.px(18);
-  let six = Css.px(12);
+  let one = BsCssCore.Css.px(72);
+  let two = BsCssCore.Css.px(48);
+  let three = BsCssCore.Css.px(36);
+  let four = BsCssCore.Css.px(24);
+  let five = BsCssCore.Css.px(18);
+  let six = BsCssCore.Css.px(12);
 };

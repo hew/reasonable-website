@@ -1,1 +1,1 @@
-src/pages/home.cmj : src/utils/primatives.cmj src/utils/utils.cmj
+src/pages/home.cmj : src/utils/primatives.cmj src/utils/space.cmj src/utils/theme.cmj

@@ -4,7 +4,7 @@ Reasonable Website (RW) is a lightweight, pure Reasonml website boilerplate.
 
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
-[View Demo](https://reasonable-website.netlify.com) 
+Demo: [https://reasonable-website.netlify.com](https://reasonable-website.netlify.com) 
 
 It's built with the following technologies:
 
